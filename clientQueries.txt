@@ -1,0 +1,155 @@
+-------------------------
+query getAllUsers{
+  users{
+    _id
+    firstName
+    lastName
+    email
+    password
+  }
+}
+
+------------------------
+
+query getAllQuotes
+{
+  quotes{
+    name
+    by
+  }
+}
+
+------------------------
+
+query getUserById
+{
+  user(_id:23132){
+    firstName
+    lastName
+    email
+    password
+  }
+}
+
+------------------------
+
+query getQuoteByUser{
+   iquote(by:23133){
+    name
+    by
+  }
+}
+
+
+------------------------
+*Using query variable*
+
+query getUserById($userId:ID!)
+{
+  user(_id:$userId){
+    firstName
+    lastName
+    email
+    password
+    quotes
+    {
+      name
+      by
+    }
+  }
+}
+
+
+QUERY VARIABLE
+{
+  "userId": 23133
+}
+
+------------------------
+*Using query variable*
+
+query getQuoteByUser($quoteBy:ID!){
+   iquote(by:$quoteBy){
+    name
+    by
+  }
+}
+
+QUERY VARIABLE
+{
+  "quoteBy": "23133"
+}
+
+
+-----------------------------
+
+mutation
+{
+  signUpUserDummy(firstName:"Sumit", lastName:"Khohal", email:"sumitkhohal@gmail.com", password:"12345")
+  {
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+
+----------------------------
+
+*USING QUERY VARIABLE*
+
+mutation createUser($userNew:UserInput!)
+{
+  user:signUpUserDummy(userNew:$userNew)
+  {
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+
+QUERY VARIABLES
+
+{
+  "userNew":{
+    "firstName":"amit",
+    "lastName":"kumar",
+    "email":"amitkumar@gmail.com",
+    "password":"12345"
+  }
+}
+
+---------------------------------------
+
+mutation SignInUser($userSignIn:UserSignInInput!)
+{
+  user:signInUser(userSignIn:$userSignIn)
+  {
+    token
+  }
+}
+
+QUERY VARIABLES
+{
+  "userSignIn":{
+    "email": "amitkumr@gmail.com",
+    "password": "12345"
+  }
+}
+
+-------------------------
+
+
+mutation createQuote{
+  quote:createQuote(name:"This is using mongoDB part two")
+}
+
+
+HTTP HEADER
+
+{
+  "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDE2ZWY2YTMzM2YwM2RmZjViN2I3ZmEiLCJpYXQiOjE2NzkyNDExNjF9.Qc51iziCpZFtyMPq36muFrXRmzD1Bi2ITVlxcxrXVik"
+}
