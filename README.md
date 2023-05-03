@@ -30,7 +30,7 @@ Apollo Server
 Material UI
 
 # Getting Started
-To get started with the Quote App, simply visit https://my-graphql-react-app.vercel.app/profile/6416ef6a333f03dff5b7b7fa and create your own account. Once you have created your account, you can start exploring, creating, and sharing your own quotes. We hope that you find the Quote App to be a valuable and inspiring resource for your personal and professional growth!
+To get started with the Quote App, simply visit https://my-graphql-react-app.vercel.app/ and create your own account. Once you have created your account, you can start exploring, creating, and sharing your own quotes. We hope that you find the Quote App to be a valuable and inspiring resource for your personal and professional growth!
 
 # How the Quote App Helps Users
 The Quote App provides a number of benefits and advantages for its users, including:
